@@ -1,0 +1,58 @@
+﻿@model budgetapp.Models.Budget
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Budget</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WeeklyWage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WeeklyWage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bills)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bills)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Groceries)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Groceries)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transportation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transportation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoingOutFund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoingOutFund)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

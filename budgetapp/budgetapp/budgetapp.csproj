@@ -196,12 +196,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BudgetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807211731014_InitialCreate.cs" />
+    <Compile Include="Migrations\201807211731014_InitialCreate.Designer.cs">
+      <DependentUpon>201807211731014_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807221804155_BudgetModel.cs" />
+    <Compile Include="Migrations\201807221804155_BudgetModel.Designer.cs">
+      <DependentUpon>201807221804155_BudgetModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807221807530_UpdatedBudgetModel.cs" />
+    <Compile Include="Migrations\201807221807530_UpdatedBudgetModel.Designer.cs">
+      <DependentUpon>201807221807530_UpdatedBudgetModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +281,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Budgets\Create.cshtml" />
+    <Content Include="Views\Budgets\Delete.cshtml" />
+    <Content Include="Views\Budgets\Details.cshtml" />
+    <Content Include="Views\Budgets\Edit.cshtml" />
+    <Content Include="Views\Budgets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -282,6 +302,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807211731014_InitialCreate.resx">
+      <DependentUpon>201807211731014_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221804155_BudgetModel.resx">
+      <DependentUpon>201807221804155_BudgetModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807221807530_UpdatedBudgetModel.resx">
+      <DependentUpon>201807221807530_UpdatedBudgetModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

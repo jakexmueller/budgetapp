@@ -29,5 +29,7 @@ namespace budgetapp.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<budgetapp.Models.Budget> Budgets { get; set; }
     }
 }

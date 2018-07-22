@@ -1,0 +1,57 @@
+﻿@model IEnumerable<budgetapp.Models.Budget>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WeeklyWage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Groceries)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transportation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GoingOutFund)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WeeklyWage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Groceries)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Transportation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoingOutFund)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
