@@ -31,5 +31,7 @@ namespace budgetapp.Models
         }
 
         public System.Data.Entity.DbSet<budgetapp.Models.Budget> Budgets { get; set; }
+
+        public System.Data.Entity.DbSet<budgetapp.Models.WeeklyReport> WeeklyReports { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace budgetapp.Models
 {
-    public class Budget
+    public class WeeklyReport
     {
         [Key]
         public int Id { get; set; }
@@ -16,12 +16,10 @@ namespace budgetapp.Models
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
-        public int WeeklyWage { get; set; }
-        public int Bills { get; set; }
-        public int Groceries { get; set; }
-        public int Transportation { get; set; }
-        public int GoingOutFund { get; set; }
+        public int WeeklyIncome { get; set; }
+        public int WeeklyBudget { get; set; }
+        public int Spending { get; set; }
+        public int Balance { get; set; }
 
-        
     }
 }

@@ -199,26 +199,28 @@
     <Compile Include="Controllers\BudgetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\WeeklyReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807211731014_InitialCreate.cs" />
-    <Compile Include="Migrations\201807211731014_InitialCreate.Designer.cs">
-      <DependentUpon>201807211731014_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201807231608535_BudgetAndReportModels.cs" />
+    <Compile Include="Migrations\201807231608535_BudgetAndReportModels.Designer.cs">
+      <DependentUpon>201807231608535_BudgetAndReportModels.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807221804155_BudgetModel.cs" />
-    <Compile Include="Migrations\201807221804155_BudgetModel.Designer.cs">
-      <DependentUpon>201807221804155_BudgetModel.cs</DependentUpon>
+    <Compile Include="Migrations\201807231845092_WeeklyReportsViews.cs" />
+    <Compile Include="Migrations\201807231845092_WeeklyReportsViews.Designer.cs">
+      <DependentUpon>201807231845092_WeeklyReportsViews.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807221807530_UpdatedBudgetModel.cs" />
-    <Compile Include="Migrations\201807221807530_UpdatedBudgetModel.Designer.cs">
-      <DependentUpon>201807221807530_UpdatedBudgetModel.cs</DependentUpon>
+    <Compile Include="Migrations\201807231940458_WeeklyReport.cs" />
+    <Compile Include="Migrations\201807231940458_WeeklyReport.Designer.cs">
+      <DependentUpon>201807231940458_WeeklyReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\WeeklyReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -286,6 +288,11 @@
     <Content Include="Views\Budgets\Details.cshtml" />
     <Content Include="Views\Budgets\Edit.cshtml" />
     <Content Include="Views\Budgets\Index.cshtml" />
+    <Content Include="Views\WeeklyReports\Index.cshtml" />
+    <Content Include="Views\WeeklyReports\Create.cshtml" />
+    <Content Include="Views\WeeklyReports\Delete.cshtml" />
+    <Content Include="Views\WeeklyReports\Details.cshtml" />
+    <Content Include="Views\WeeklyReports\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,14 +311,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807211731014_InitialCreate.resx">
-      <DependentUpon>201807211731014_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807231608535_BudgetAndReportModels.resx">
+      <DependentUpon>201807231608535_BudgetAndReportModels.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807221804155_BudgetModel.resx">
-      <DependentUpon>201807221804155_BudgetModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807231845092_WeeklyReportsViews.resx">
+      <DependentUpon>201807231845092_WeeklyReportsViews.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807221807530_UpdatedBudgetModel.resx">
-      <DependentUpon>201807221807530_UpdatedBudgetModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807231940458_WeeklyReport.resx">
+      <DependentUpon>201807231940458_WeeklyReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

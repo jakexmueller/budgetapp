@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using budgetapp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace budgetapp.Controllers
 {
@@ -50,6 +51,9 @@ namespace budgetapp.Controllers
         {
             if (ModelState.IsValid)
             {
+                string currentUserId = User.Identity.GetUserId();
+                budget.UserId = currentUserId;
+
                 db.Budgets.Add(budget);
                 db.SaveChanges();
                 return RedirectToAction("Index");
