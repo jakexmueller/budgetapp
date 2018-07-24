@@ -39,7 +39,7 @@ namespace budgetapp.Controllers
         // GET: WishLists/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace budgetapp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", wishList.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
             return View(wishList);
         }
 
@@ -73,7 +73,7 @@ namespace budgetapp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", wishList.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
             return View(wishList);
         }
 
@@ -90,7 +90,7 @@ namespace budgetapp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", wishList.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
             return View(wishList);
         }
 

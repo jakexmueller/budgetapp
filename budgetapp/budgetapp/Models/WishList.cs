@@ -17,6 +17,10 @@ namespace budgetapp.Models
         public ApplicationUser ApplicationUser { get; set; }
 
         public string ItemName { get; set; }
+        public string ItemType { get; set; }
         public int ItemPrice { get; set; }
+        public int DisplayNumber { get; set; }
+        public bool DisplayFirst { get; set; }
+
     }
 }

@@ -224,6 +224,14 @@
     <Compile Include="Migrations\201807232034248_WishlistItemId.Designer.cs">
       <DependentUpon>201807232034248_WishlistItemId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807241329565_ApplicationUserException.cs" />
+    <Compile Include="Migrations\201807241329565_ApplicationUserException.Designer.cs">
+      <DependentUpon>201807241329565_ApplicationUserException.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807241457034_MWishlistModelUpdates.cs" />
+    <Compile Include="Migrations\201807241457034_MWishlistModelUpdates.Designer.cs">
+      <DependentUpon>201807241457034_MWishlistModelUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -340,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807232034248_WishlistItemId.resx">
       <DependentUpon>201807232034248_WishlistItemId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241329565_ApplicationUserException.resx">
+      <DependentUpon>201807241329565_ApplicationUserException.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807241457034_MWishlistModelUpdates.resx">
+      <DependentUpon>201807241457034_MWishlistModelUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

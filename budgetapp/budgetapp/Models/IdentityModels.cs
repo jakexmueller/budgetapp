@@ -36,6 +36,6 @@ namespace budgetapp.Models
 
         public System.Data.Entity.DbSet<budgetapp.Models.WishList> WishLists { get; set; }
 
-        public System.Data.Entity.DbSet<budgetapp.Models.ApplicationUser> ApplicationUsers { get; set; }
+        //public System.Data.Entity.DbSet<budgetapp.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }
