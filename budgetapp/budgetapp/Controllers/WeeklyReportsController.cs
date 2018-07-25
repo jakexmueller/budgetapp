@@ -178,8 +178,33 @@ namespace budgetapp.Controllers
         }
 
         //GET: WeeklyReports/AddPurchasedItem/5
+        public ActionResult AddPurchasedItem(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
+            if (weeklyReport == null)
+            {
+                return HttpNotFound();
+            }
+            return View(weeklyReport);
+        }
 
         //POST: WeeklyReports/AddPurchasedItem/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(weeklyReport).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(weeklyReport);
+        }
 
 
         protected override void Dispose(bool disposing)

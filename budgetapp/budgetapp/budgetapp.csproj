@@ -294,6 +294,7 @@
     <Content Include="Views\WishLists\Index.cshtml" />
     <Content Include="Views\WishLists\MoveToFront.cshtml" />
     <Content Include="Views\WeeklyReports\AddBonus.cshtml" />
+    <Content Include="Views\WeeklyReports\AddPurchasedItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
