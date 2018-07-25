@@ -53,10 +53,25 @@ namespace budgetapp.Controllers
             if (ModelState.IsValid)
             {
                 db.WishLists.Add(wishList);
+                //if no records, assign 1, if there are, increment by 1
+                //var x = query that finds highest display number and increment by 1
+                
+                if (db.WishLists.Count() == 0)
+                {
+                    wishList.DisplayNumber = 1;
+                }
+                else
+                {
+                    int maxDisplayNumber = db.WishLists.Max(p => p.DisplayNumber);
+
+                    wishList.DisplayNumber = maxDisplayNumber + 1;
+                }
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
             return View(wishList);
         }
@@ -128,5 +143,40 @@ namespace budgetapp.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //GET: WishLists/MoveToFront/5
+        public ActionResult MoveToFront([Bind(Include = "DisplayNumber")]int? id)
+        {
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WishList wishList = db.WishLists.Find(id);
+            if (wishList == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
+
+
+            WishList newItemToSave = db.WishLists.Find(id);
+            var currentDisplayNumber = newItemToSave.DisplayNumber;
+            var oldSavingsItem = db.WishLists.Where(p => p.DisplayNumber == 1).FirstOrDefault();
+
+            oldSavingsItem.DisplayNumber = currentDisplayNumber;
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+            //return View(wishList);
+        }
+
+        ////POST: WishLists/MoveToFront/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult MoveToFront( int id)
+        //{
+            
+        //}
     }
 }

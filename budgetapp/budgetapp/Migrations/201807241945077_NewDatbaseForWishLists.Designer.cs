@@ -7,13 +7,13 @@ namespace budgetapp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class WishlistModel : IMigrationMetadata
+    public sealed partial class NewDatbaseForWishLists : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(WishlistModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(NewDatbaseForWishLists));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807232030569_WishlistModel"; }
+            get { return "201807241945077_NewDatbaseForWishLists"; }
         }
         
         string IMigrationMetadata.Source

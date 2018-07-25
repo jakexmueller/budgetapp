@@ -1,0 +1,11 @@
+﻿@model IEnumerable<budgetapp.Models.WishList>
+
+@{
+    ViewBag.Title = "MoveToFront";
+}
+
+<h2>Are you sure you want to start saving for this item, instead of your current item?</h2>
+
+<p>
+    @Html.ActionLink("Yes", "MoveToFront")
+</p>

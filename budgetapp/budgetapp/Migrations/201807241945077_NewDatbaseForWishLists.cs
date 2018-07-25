@@ -3,7 +3,7 @@ namespace budgetapp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class BudgetAndReportModels : DbMigration
+    public partial class NewDatbaseForWishLists : DbMigration
     {
         public override void Up()
         {
@@ -106,16 +106,34 @@ namespace budgetapp.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.WishLists",
+                c => new
+                    {
+                        ItemId = c.Int(nullable: false, identity: true),
+                        UserId = c.String(maxLength: 128),
+                        ItemName = c.String(),
+                        ItemType = c.String(),
+                        ItemPrice = c.Int(nullable: false),
+                        DisplayNumber = c.Int(nullable: false),
+                        DisplayFirst = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.ItemId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.WishLists", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.WeeklyReports", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Budgets", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.WishLists", new[] { "UserId" });
             DropIndex("dbo.WeeklyReports", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
@@ -124,6 +142,7 @@ namespace budgetapp.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Budgets", new[] { "UserId" });
+            DropTable("dbo.WishLists");
             DropTable("dbo.WeeklyReports");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
