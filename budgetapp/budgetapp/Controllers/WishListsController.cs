@@ -17,8 +17,9 @@ namespace budgetapp.Controllers
         // GET: WishLists
         public ActionResult Index()
         {
-            var wishLists = db.WishLists.Include(w => w.ApplicationUser);
-            return View(wishLists.ToList());
+            var wishLists = db.WishLists.Include(w => w.ApplicationUser).OrderBy(x => x.DisplayNumber).ToList(); 
+            
+            return View(wishLists);
         }
 
         // GET: WishLists/Details/5
