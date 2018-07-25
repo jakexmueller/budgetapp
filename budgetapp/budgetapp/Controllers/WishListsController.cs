@@ -162,7 +162,7 @@ namespace budgetapp.Controllers
             WishList newItemToSave = db.WishLists.Find(id);
             var currentDisplayNumber = newItemToSave.DisplayNumber;
             var oldSavingsItem = db.WishLists.Where(p => p.DisplayNumber == 1).FirstOrDefault();
-
+            newItemToSave.DisplayNumber = 1;
             oldSavingsItem.DisplayNumber = currentDisplayNumber;
             db.SaveChanges();
 
