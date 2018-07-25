@@ -148,6 +148,40 @@ namespace budgetapp.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET: WeeklyReports/AddBonus/5
+        public ActionResult AddBonus(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
+            if (weeklyReport == null)
+            {
+                return HttpNotFound();
+            }
+            return View(weeklyReport);
+        }
+
+        //POST: WeeklyReports/AddBonus/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddBonus([Bind(Include = "WeeklyIncome")] WeeklyReport weeklyReport)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(weeklyReport).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(weeklyReport);
+        }
+
+        //GET: WeeklyReports/AddPurchasedItem/5
+
+        //POST: WeeklyReports/AddPurchasedItem/5
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
