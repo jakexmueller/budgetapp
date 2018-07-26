@@ -208,6 +208,10 @@
     <Compile Include="Migrations\201807241945077_NewDatbaseForWishLists.Designer.cs">
       <DependentUpon>201807241945077_NewDatbaseForWishLists.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807261829372_WeeklyReportControllerpdate.cs" />
+    <Compile Include="Migrations\201807261829372_WeeklyReportControllerpdate.Designer.cs">
+      <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -315,6 +319,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807241945077_NewDatbaseForWishLists.resx">
       <DependentUpon>201807241945077_NewDatbaseForWishLists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807261829372_WeeklyReportControllerpdate.resx">
+      <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

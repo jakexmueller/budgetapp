@@ -37,17 +37,8 @@ namespace budgetapp.Controllers
 ;        }
 
         // GET: WeeklyReports/Details/5
-        public ActionResult Details(/*int? id*/)
+        public ActionResult Details([Bind(Include = "UserID,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //WeeklyReport customerWeeklyReport = db.WeeklyReports.Find(id);
-            //if (customerWeeklyReport == null)
-            //{
-            //    return HttpNotFound();
-            //}
 
             string currentUserId = User.Identity.GetUserId();
             Budget budget = db.Budgets.Where(m => m.UserId == currentUserId).FirstOrDefault();
@@ -56,13 +47,21 @@ namespace budgetapp.Controllers
             int weeklyBudget = (budget.Bills) + (budget.Groceries) + (budget.Transportation) + (budget.GoingOutFund);
             int weeklySpending = 0;
             int weeklyBalance = weeklyBudget - weeklySpending;
+            db.WeeklyReports.Add(weeklyReport);
+            db.SaveChanges();
             //IEnumerable<WeeklyReport> weeklyReport = null;
             //List<WeeklyReport> weeklyReport = new List<WeeklyReport>();
-            WeeklyReport weeklyReport = new WeeklyReport();
+            //WeeklyReport weeklyReport = new WeeklyReport();
+            //WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
+            weeklyReport.UserId = currentUserId;
             weeklyReport.WeeklyIncome = weeklyWage;
             weeklyReport.WeeklyBudget = weeklyBudget;
             weeklyReport.Spending = weeklySpending;
             weeklyReport.Balance = weeklyBalance;
+            db.SaveChanges();
+
+
+
             return View(weeklyReport);
 
             //return View(weeklyReport);
@@ -79,7 +78,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
+        public ActionResult Create([Bind(Include = "UserID,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
             if (ModelState.IsValid)
             {
@@ -189,16 +188,19 @@ namespace budgetapp.Controllers
             {
                 return HttpNotFound();
             }
-            return View(weeklyReport);
+            return View("AddPurchasedItem");
         }
 
         //POST: WeeklyReports/AddPurchasedItem/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport)
+        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport, int id)
         {
             if (ModelState.IsValid)
             {
+                //find user in database, get their weekly report, add entered user info to it
+                var spending = db.WeeklyReports.Find(id).Spending;
+                spending += weeklyReport.Spending;
                 db.Entry(weeklyReport).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
