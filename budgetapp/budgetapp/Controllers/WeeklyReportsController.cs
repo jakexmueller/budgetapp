@@ -159,18 +159,19 @@ namespace budgetapp.Controllers
         }
 
         //GET: WeeklyReports/AddBonus/5
-        public ActionResult AddBonus(int? id)
+        public ActionResult AddBonus()
         {
-            if (id == null)
+            var currentUserId = User.Identity.GetUserId();
+            if (currentUserId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
+            WeeklyReport weeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
             if (weeklyReport == null)
             {
                 return HttpNotFound();
             }
-            return View(weeklyReport);
+            return View("AddBonus");
         }
 
         //POST: WeeklyReports/AddBonus/5
