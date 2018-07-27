@@ -47,18 +47,29 @@ namespace budgetapp.Controllers
             int weeklyBudget = (budget.Bills) + (budget.Groceries) + (budget.Transportation) + (budget.GoingOutFund);
             int weeklySpending = 0;
             int weeklyBalance = weeklyBudget - weeklySpending;
-            db.WeeklyReports.Add(weeklyReport);
+
+            var myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+
+            //myWeeklyReport = weeklyReport;
             db.SaveChanges();
-            //IEnumerable<WeeklyReport> weeklyReport = null;
-            //List<WeeklyReport> weeklyReport = new List<WeeklyReport>();
-            //WeeklyReport weeklyReport = new WeeklyReport();
-            //WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
-            weeklyReport.UserId = currentUserId;
-            weeklyReport.WeeklyIncome = weeklyWage;
-            weeklyReport.WeeklyBudget = weeklyBudget;
-            weeklyReport.Spending = weeklySpending;
-            weeklyReport.Balance = weeklyBalance;
+
+            //weeklyReport.UserId = currentUserId;
+            //weeklyReport.WeeklyIncome = weeklyWage;
+            //weeklyReport.WeeklyBudget = weeklyBudget;
+            //weeklyReport.Spending = weeklySpending;
+            //weeklyReport.Balance = weeklyBalance;
+
+            weeklyReport.UserId = myWeeklyReport.UserId;
+            weeklyReport.WeeklyIncome = myWeeklyReport.WeeklyIncome;
+            weeklyReport.WeeklyBudget =myWeeklyReport.WeeklyBudget;
+            weeklyReport.Spending =myWeeklyReport.Spending;
+            weeklyReport.Balance = myWeeklyReport.Balance;
+
+
+
             db.SaveChanges();
+
+
 
 
 
@@ -177,13 +188,18 @@ namespace budgetapp.Controllers
         }
 
         //GET: WeeklyReports/AddPurchasedItem/5
-        public ActionResult AddPurchasedItem(int? id)
+        public ActionResult AddPurchasedItem(/*int? id*/)
         {
-            if (id == null)
+
+            var currentUserId = User.Identity.GetUserId();
+
+            if (currentUserId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
+
+            WeeklyReport weeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+            //WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
             if (weeklyReport == null)
             {
                 return HttpNotFound();
@@ -194,16 +210,18 @@ namespace budgetapp.Controllers
         //POST: WeeklyReports/AddPurchasedItem/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport, int id)
+        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport/*, int id*/)
         {
             if (ModelState.IsValid)
             {
+                var currentUserId = User.Identity.GetUserId();
                 //find user in database, get their weekly report, add entered user info to it
-                var spending = db.WeeklyReports.Find(id).Spending;
-                spending += weeklyReport.Spending;
-                db.Entry(weeklyReport).State = EntityState.Modified;
+                WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x=>x.UserId == currentUserId).FirstOrDefault();
+                myWeeklyReport.Spending += weeklyReport.Spending;
+
+                db.Entry(myWeeklyReport).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new {id = myWeeklyReport.Id });
             }
             return View(weeklyReport);
         }
