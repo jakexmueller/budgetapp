@@ -181,26 +181,31 @@ namespace budgetapp.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(weeklyReport).State = EntityState.Modified;
+                var currentUserId = User.Identity.GetUserId();
+                WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+                myWeeklyReport.WeeklyIncome += weeklyReport.WeeklyIncome;
+                db.Entry(myWeeklyReport).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = myWeeklyReport.Id });
+
+
+
+                //db.Entry(weeklyReport).State = EntityState.Modified;
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
             }
             return View(weeklyReport);
         }
 
         //GET: WeeklyReports/AddPurchasedItem/5
-        public ActionResult AddPurchasedItem(/*int? id*/)
+        public ActionResult AddPurchasedItem()
         {
-
             var currentUserId = User.Identity.GetUserId();
-
             if (currentUserId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             WeeklyReport weeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
-            //WeeklyReport weeklyReport = db.WeeklyReports.Find(id);
             if (weeklyReport == null)
             {
                 return HttpNotFound();
@@ -211,15 +216,13 @@ namespace budgetapp.Controllers
         //POST: WeeklyReports/AddPurchasedItem/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport/*, int id*/)
+        public ActionResult AddPurchasedItem([Bind(Include = "Spending")] WeeklyReport weeklyReport)
         {
             if (ModelState.IsValid)
             {
                 var currentUserId = User.Identity.GetUserId();
-                //find user in database, get their weekly report, add entered user info to it
                 WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x=>x.UserId == currentUserId).FirstOrDefault();
                 myWeeklyReport.Spending += weeklyReport.Spending;
-
                 db.Entry(myWeeklyReport).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new {id = myWeeklyReport.Id });
