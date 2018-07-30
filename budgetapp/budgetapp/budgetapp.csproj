@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201807301333348_NowTHisShouldWork.Designer.cs">
       <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807301352536_UpdatedSpendingHabits.cs" />
+    <Compile Include="Migrations\201807301352536_UpdatedSpendingHabits.Designer.cs">
+      <DependentUpon>201807301352536_UpdatedSpendingHabits.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -322,6 +326,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807301333348_NowTHisShouldWork.resx">
       <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807301352536_UpdatedSpendingHabits.resx">
+      <DependentUpon>201807301352536_UpdatedSpendingHabits.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
