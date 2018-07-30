@@ -212,6 +212,14 @@
     <Compile Include="Migrations\201807261829372_WeeklyReportControllerpdate.Designer.cs">
       <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807281901280_IDontKnowWhatImDoing.cs" />
+    <Compile Include="Migrations\201807281901280_IDontKnowWhatImDoing.Designer.cs">
+      <DependentUpon>201807281901280_IDontKnowWhatImDoing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807282100516_IHAteMyLife.cs" />
+    <Compile Include="Migrations\201807282100516_IHAteMyLife.Designer.cs">
+      <DependentUpon>201807282100516_IHAteMyLife.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -322,6 +330,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807261829372_WeeklyReportControllerpdate.resx">
       <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807281901280_IDontKnowWhatImDoing.resx">
+      <DependentUpon>201807281901280_IDontKnowWhatImDoing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807282100516_IHAteMyLife.resx">
+      <DependentUpon>201807282100516_IHAteMyLife.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

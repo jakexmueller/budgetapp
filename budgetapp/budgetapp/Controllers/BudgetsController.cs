@@ -47,14 +47,27 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,WeeklyWage,Bills,Groceries,Transportation,GoingOutFund")] Budget budget)
+        public ActionResult Create([Bind(Include = "Id,UserId,WeeklyWage,Bills,Groceries,Transportation,GoingOutFund")] Budget budget)
         {
             if (ModelState.IsValid)
             {
+                WeeklyReport weeklyReport = new WeeklyReport();
                 string currentUserId = User.Identity.GetUserId();
                 budget.UserId = currentUserId;
 
                 db.Budgets.Add(budget);
+                db.WeeklyReports.Add(weeklyReport);
+
+                //string userId = User.Identity.GetUserId();
+                //Budget budget = db.Budgets.Where(m => m.UserId == userId).FirstOrDefault();
+                //WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+                weeklyReport.UserId = currentUserId;
+                weeklyReport.WeeklyIncome = budget.WeeklyWage;
+                weeklyReport.WeeklyBudget = budget.Bills + budget.Groceries + budget.Transportation + budget.GoingOutFund;
+                weeklyReport.Balance = weeklyReport.WeeklyBudget - weeklyReport.Spending;
+                db.SaveChanges();
+
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

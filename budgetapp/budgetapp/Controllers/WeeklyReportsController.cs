@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using budgetapp.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace budgetapp.Controllers
 {
@@ -18,21 +19,7 @@ namespace budgetapp.Controllers
         // GET: WeeklyReports
         public ActionResult Index()
         {
-            //string currentUserId = User.Identity.GetUserId();
-            //Budget budget = db.Budgets.Where(m => m.UserId == currentUserId).FirstOrDefault();
-
-            //int weeklyWage = budget.WeeklyWage;
-            //int weeklyBudget = (budget.Bills)+(budget.Groceries)+(budget.Transportation)+(budget.GoingOutFund);
-            //int weeklySpending = 0;
-            //int weeklyBalance = weeklyBudget - weeklySpending;
-            ////IEnumerable<WeeklyReport> weeklyReport = null;
-            ////List<WeeklyReport> weeklyReport = new List<WeeklyReport>();
-            //WeeklyReport weeklyReport = new WeeklyReport();
-            //weeklyReport.WeeklyIncome  = weeklyWage;
-            //weeklyReport.WeeklyBudget = weeklyBudget;
-            //weeklyReport.Spending = weeklySpending;
-            //weeklyReport.Balance = weeklyBalance;
-            //return View(weeklyReport.ToList());
+            
             return View(db.WeeklyReports.ToList());
 ;        }
 
@@ -40,42 +27,25 @@ namespace budgetapp.Controllers
         public ActionResult Details([Bind(Include = "UserID,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
 
-            string currentUserId = User.Identity.GetUserId();
-            Budget budget = db.Budgets.Where(m => m.UserId == currentUserId).FirstOrDefault();
+            //if(weeklyReport == null)
+            //{
+            //    db.WeeklyReports.Add(weeklyReport);
+            //    db.SaveChanges();
+            //}
+            //string currentUserId = User.Identity.GetUserId();
+            //string userId = User.Identity.GetUserId();
+            //Budget budget = db.Budgets.Where(m => m.UserId == userId).FirstOrDefault();     
+            ////WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+            //weeklyReport.UserId = userId;
+            //weeklyReport.WeeklyIncome = budget.WeeklyWage;
+            //weeklyReport.WeeklyBudget = budget.Bills + budget.Groceries + budget.Transportation + budget.GoingOutFund;
+            //weeklyReport.Balance = weeklyReport.WeeklyBudget - weeklyReport.Spending;
+            //db.SaveChanges();
 
-            int weeklyWage = budget.WeeklyWage;
-            int weeklyBudget = (budget.Bills) + (budget.Groceries) + (budget.Transportation) + (budget.GoingOutFund);
-            int weeklySpending = 0;
-            int weeklyBalance = weeklyBudget - weeklySpending;
+            var currentUserId = User.Identity.GetUserId();
+            var myWeeklyReport = db.WeeklyReports.Where(m => m.UserId == currentUserId).FirstOrDefault();
 
-            var myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
-
-            //myWeeklyReport = weeklyReport;
-            db.SaveChanges();
-
-            //weeklyReport.UserId = currentUserId;
-            //weeklyReport.WeeklyIncome = weeklyWage;
-            //weeklyReport.WeeklyBudget = weeklyBudget;
-            //weeklyReport.Spending = weeklySpending;
-            //weeklyReport.Balance = weeklyBalance;
-
-            weeklyReport.UserId = myWeeklyReport.UserId;
-            weeklyReport.WeeklyIncome = myWeeklyReport.WeeklyIncome;
-            weeklyReport.WeeklyBudget =myWeeklyReport.WeeklyBudget;
-            weeklyReport.Spending =myWeeklyReport.Spending;
-            weeklyReport.Balance = myWeeklyReport.Balance;
-
-
-
-            db.SaveChanges();
-
-
-
-
-
-            return View(weeklyReport);
-
-            //return View(weeklyReport);
+            return View(myWeeklyReport);
         }
 
         // GET: WeeklyReports/Create
@@ -223,6 +193,7 @@ namespace budgetapp.Controllers
                 var currentUserId = User.Identity.GetUserId();
                 WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x=>x.UserId == currentUserId).FirstOrDefault();
                 myWeeklyReport.Spending += weeklyReport.Spending;
+                myWeeklyReport.Balance -= weeklyReport.Spending;
                 db.Entry(myWeeklyReport).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Details", new {id = myWeeklyReport.Id });
