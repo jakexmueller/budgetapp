@@ -16,6 +16,7 @@ namespace budgetapp.Models
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+        public DateTime WeekOf { get; set; }
         public int WeeklyIncome { get; set; }
         public int WeeklyBudget { get; set; }
         public int Spending { get; set; }

@@ -49,7 +49,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserId,Date,CashTotal,AssetTotal,BudgetIndicator")] SpendingHabits spendingHabits)
+        public ActionResult Create([Bind(Include = "Id,UserId,CashTotal,AssetTotal,AccountTotal")] SpendingHabits spendingHabits)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserId,Date,CashTotal,AssetTotal,BudgetIndicator")] SpendingHabits spendingHabits)
+        public ActionResult Edit([Bind(Include = "Id,UserId,CashTotal,AssetTotal,AccountTotal")] SpendingHabits spendingHabits)
         {
             if (ModelState.IsValid)
             {
