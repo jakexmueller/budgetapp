@@ -3,7 +3,7 @@ namespace budgetapp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class NowTHisShouldWork : DbMigration
+    public partial class AddedDateTime : DbMigration
     {
         public override void Up()
         {
@@ -97,10 +97,9 @@ namespace budgetapp.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
-                        Date = c.DateTime(nullable: false),
                         CashTotal = c.Int(nullable: false),
                         AssetTotal = c.Double(nullable: false),
-                        BudgetIndicator = c.Boolean(nullable: false),
+                        AccountTotal = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
@@ -112,6 +111,7 @@ namespace budgetapp.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
+                        WeekOf = c.DateTime(nullable: false),
                         WeeklyIncome = c.Int(nullable: false),
                         WeeklyBudget = c.Int(nullable: false),
                         Spending = c.Int(nullable: false),

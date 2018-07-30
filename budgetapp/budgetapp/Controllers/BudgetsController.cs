@@ -62,6 +62,7 @@ namespace budgetapp.Controllers
                 //Budget budget = db.Budgets.Where(m => m.UserId == userId).FirstOrDefault();
                 //WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
                 weeklyReport.UserId = currentUserId;
+                weeklyReport.WeekOf = DateTime.Now.AddDays(-Convert.ToInt32(DateTime.Now.DayOfWeek));
                 weeklyReport.WeeklyIncome = budget.WeeklyWage;
                 weeklyReport.WeeklyBudget = budget.Bills + budget.Groceries + budget.Transportation + budget.GoingOutFund;
                 weeklyReport.Balance = weeklyReport.WeeklyBudget - weeklyReport.Spending;

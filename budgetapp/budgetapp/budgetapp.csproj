@@ -200,18 +200,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SpendingHabitsController.cs" />
+    <Compile Include="Controllers\StocksController.cs" />
     <Compile Include="Controllers\WeeklyReportsController.cs" />
     <Compile Include="Controllers\WishListsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301333348_NowTHisShouldWork.cs" />
-    <Compile Include="Migrations\201807301333348_NowTHisShouldWork.Designer.cs">
-      <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301352536_UpdatedSpendingHabits.cs" />
-    <Compile Include="Migrations\201807301352536_UpdatedSpendingHabits.Designer.cs">
-      <DependentUpon>201807301352536_UpdatedSpendingHabits.cs</DependentUpon>
+    <Compile Include="Keys.cs" />
+    <Compile Include="Migrations\201807301527238_AddedDateTime.cs" />
+    <Compile Include="Migrations\201807301527238_AddedDateTime.Designer.cs">
+      <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -309,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Stocks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -324,11 +323,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807301333348_NowTHisShouldWork.resx">
-      <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301352536_UpdatedSpendingHabits.resx">
-      <DependentUpon>201807301352536_UpdatedSpendingHabits.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807301527238_AddedDateTime.resx">
+      <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

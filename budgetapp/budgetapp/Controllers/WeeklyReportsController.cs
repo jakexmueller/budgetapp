@@ -24,7 +24,7 @@ namespace budgetapp.Controllers
 ;        }
 
         // GET: WeeklyReports/Details/5
-        public ActionResult Details([Bind(Include = "UserID,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
+        public ActionResult Details([Bind(Include = "UserID,WeekOf,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
 
             //if(weeklyReport == null)
@@ -59,7 +59,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
+        public ActionResult Create([Bind(Include = "UserID,WeekOf,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
+        public ActionResult Edit([Bind(Include = "WeekOf,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport)
         {
             if (ModelState.IsValid)
             {
