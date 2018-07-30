@@ -205,25 +205,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807241945077_NewDatbaseForWishLists.cs" />
-    <Compile Include="Migrations\201807241945077_NewDatbaseForWishLists.Designer.cs">
-      <DependentUpon>201807241945077_NewDatbaseForWishLists.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807261829372_WeeklyReportControllerpdate.cs" />
-    <Compile Include="Migrations\201807261829372_WeeklyReportControllerpdate.Designer.cs">
-      <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807281901280_IDontKnowWhatImDoing.cs" />
-    <Compile Include="Migrations\201807281901280_IDontKnowWhatImDoing.Designer.cs">
-      <DependentUpon>201807281901280_IDontKnowWhatImDoing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807282100516_IHAteMyLife.cs" />
-    <Compile Include="Migrations\201807282100516_IHAteMyLife.Designer.cs">
-      <DependentUpon>201807282100516_IHAteMyLife.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807301318124_SpendingHabitsModel.cs" />
-    <Compile Include="Migrations\201807301318124_SpendingHabitsModel.Designer.cs">
-      <DependentUpon>201807301318124_SpendingHabitsModel.cs</DependentUpon>
+    <Compile Include="Migrations\201807301333348_NowTHisShouldWork.cs" />
+    <Compile Include="Migrations\201807301333348_NowTHisShouldWork.Designer.cs">
+      <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -336,20 +320,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807241945077_NewDatbaseForWishLists.resx">
-      <DependentUpon>201807241945077_NewDatbaseForWishLists.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807261829372_WeeklyReportControllerpdate.resx">
-      <DependentUpon>201807261829372_WeeklyReportControllerpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807281901280_IDontKnowWhatImDoing.resx">
-      <DependentUpon>201807281901280_IDontKnowWhatImDoing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807282100516_IHAteMyLife.resx">
-      <DependentUpon>201807282100516_IHAteMyLife.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807301318124_SpendingHabitsModel.resx">
-      <DependentUpon>201807301318124_SpendingHabitsModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807301333348_NowTHisShouldWork.resx">
+      <DependentUpon>201807301333348_NowTHisShouldWork.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

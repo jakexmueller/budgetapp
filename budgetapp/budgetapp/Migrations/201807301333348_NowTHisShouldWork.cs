@@ -3,7 +3,7 @@ namespace budgetapp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class NewDatbaseForWishLists : DbMigration
+    public partial class NowTHisShouldWork : DbMigration
     {
         public override void Up()
         {
@@ -92,6 +92,21 @@ namespace budgetapp.Migrations
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
             
             CreateTable(
+                "dbo.SpendingHabits",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        UserId = c.String(maxLength: 128),
+                        Date = c.DateTime(nullable: false),
+                        CashTotal = c.Int(nullable: false),
+                        AssetTotal = c.Double(nullable: false),
+                        BudgetIndicator = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.UserId);
+            
+            CreateTable(
                 "dbo.WeeklyReports",
                 c => new
                     {
@@ -128,6 +143,7 @@ namespace budgetapp.Migrations
         {
             DropForeignKey("dbo.WishLists", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.WeeklyReports", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.SpendingHabits", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Budgets", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -135,6 +151,7 @@ namespace budgetapp.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.WishLists", new[] { "UserId" });
             DropIndex("dbo.WeeklyReports", new[] { "UserId" });
+            DropIndex("dbo.SpendingHabits", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -144,6 +161,7 @@ namespace budgetapp.Migrations
             DropIndex("dbo.Budgets", new[] { "UserId" });
             DropTable("dbo.WishLists");
             DropTable("dbo.WeeklyReports");
+            DropTable("dbo.SpendingHabits");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

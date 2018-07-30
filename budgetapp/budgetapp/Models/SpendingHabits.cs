@@ -11,9 +11,11 @@ namespace budgetapp.Models
     {
         [Key]
         public int Id { get; set; }
+
         [ForeignKey("ApplicationUser")]
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
+
         public DateTime Date { get; set; }
         public int CashTotal { get; set; }
         public double AssetTotal { get; set; }

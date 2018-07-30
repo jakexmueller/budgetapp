@@ -17,8 +17,9 @@ namespace budgetapp.Controllers
         // GET: SpendingHabits
         public ActionResult Index()
         {
-            var spendingHabits = db.SpendingHabits.Include(s => s.ApplicationUser);
-            return View(spendingHabits.ToList());
+            //var spendingHabits = db.SpendingHabits.Include(s => s.ApplicationUser);
+            //return View(spendingHabits.ToList());
+            return View(db.SpendingHabits.ToList());
         }
 
         // GET: SpendingHabits/Details/5
@@ -39,7 +40,7 @@ namespace budgetapp.Controllers
         // GET: SpendingHabits/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email");
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email");
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace budgetapp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
             return View(spendingHabits);
         }
 
@@ -73,7 +74,7 @@ namespace budgetapp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
             return View(spendingHabits);
         }
 
@@ -90,7 +91,7 @@ namespace budgetapp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
+            //ViewBag.UserId = new SelectList(db.ApplicationUsers, "Id", "Email", spendingHabits.UserId);
             return View(spendingHabits);
         }
 
