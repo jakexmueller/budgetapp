@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using budgetapp.Models;
 
 namespace budgetapp.Controllers
 {
@@ -15,6 +16,10 @@ namespace budgetapp.Controllers
         }
 
         // GET: Stock Quote
+        //public ActionResult GetExxonStockQuote(string XOM)
+        //{
+        //    AlphaVantageAPI alphaVantageAPI = alphaVantageAPI.GetStockDataAsync(XOM);
+        //}
 
     }
 }

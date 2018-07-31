@@ -190,6 +190,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphaVantageAPI.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -206,10 +207,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Keys.cs" />
     <Compile Include="Migrations\201807301527238_AddedDateTime.cs" />
     <Compile Include="Migrations\201807301527238_AddedDateTime.Designer.cs">
       <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310041151_StockPriceModel.cs" />
+    <Compile Include="Migrations\201807310041151_StockPriceModel.Designer.cs">
+      <DependentUpon>201807310041151_StockPriceModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807310228567_StockModel.cs" />
+    <Compile Include="Migrations\201807310228567_StockModel.Designer.cs">
+      <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,6 +225,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SpendingHabits.cs" />
+    <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\WeeklyReport.cs" />
     <Compile Include="Models\WishList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -325,6 +334,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807301527238_AddedDateTime.resx">
       <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310041151_StockPriceModel.resx">
+      <DependentUpon>201807310041151_StockPriceModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807310228567_StockModel.resx">
+      <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
