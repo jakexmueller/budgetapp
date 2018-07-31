@@ -228,6 +228,7 @@
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\WeeklyReport.cs" />
     <Compile Include="Models\WishList.cs" />
+    <Compile Include="MyKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
