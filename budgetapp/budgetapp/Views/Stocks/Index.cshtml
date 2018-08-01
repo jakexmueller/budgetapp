@@ -1,0 +1,92 @@
+﻿@model budgetapp.Models.Stock
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OneMonthAgoPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwoMonthsAgoPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThreeMonthsAgoPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FourMonthsAgoPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FiveMonthsAgoPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SixMonthsAgoPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OneMonthAgoPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TwoMonthsAgoPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ThreeMonthsAgoPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FourMonthsAgoPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FiveMonthsAgoPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SixMonthsAgoPrice)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                </td>
+            </tr>
+        }*@
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.CurrentPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.OneMonthAgoPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TwoMonthsAgoPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ThreeMonthsAgoPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.FourMonthsAgoPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.FiveMonthsAgoPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SixMonthsAgoPrice)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>*@
+    </tr>
+
+</table>

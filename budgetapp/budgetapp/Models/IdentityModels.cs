@@ -38,6 +38,8 @@ namespace budgetapp.Models
 
         public System.Data.Entity.DbSet<budgetapp.Models.SpendingHabits> SpendingHabits { get; set; }
 
+        public System.Data.Entity.DbSet<budgetapp.Models.Stock> Stocks { get; set; }
+
         //public System.Data.Entity.DbSet<budgetapp.Models.ApplicationUser> ApplicationUsers { get; set; }
 
         //public System.Data.Entity.DbSet<budgetapp.Models.ApplicationUser> ApplicationUsers { get; set; }

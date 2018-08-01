@@ -21,7 +21,7 @@ namespace budgetapp
         {
             using (var client = new HttpClient())
             {
-                var url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={symbol}&apikey=5Z0ZMHKPCN2KNOW0";
+                var url = $"https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={symbol}&apikey={MyKeys.ALPHA_VANTAGE_API_KEY}&datatype=json";
                 
                 var response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)

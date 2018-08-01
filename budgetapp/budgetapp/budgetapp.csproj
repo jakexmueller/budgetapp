@@ -219,6 +219,14 @@
     <Compile Include="Migrations\201807310228567_StockModel.Designer.cs">
       <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807311454599_APIMVC.cs" />
+    <Compile Include="Migrations\201807311454599_APIMVC.Designer.cs">
+      <DependentUpon>201807311454599_APIMVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807311959195_UpdatedStockModel.cs" />
+    <Compile Include="Migrations\201807311959195_UpdatedStockModel.Designer.cs">
+      <DependentUpon>201807311959195_UpdatedStockModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Budget.cs" />
@@ -314,10 +322,10 @@
     <Content Include="Views\SpendingHabits\Details.cshtml" />
     <Content Include="Views\SpendingHabits\Edit.cshtml" />
     <Content Include="Views\SpendingHabits\Index.cshtml" />
+    <Content Include="Views\Stocks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Stocks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -341,6 +349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807310228567_StockModel.resx">
       <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311454599_APIMVC.resx">
+      <DependentUpon>201807311454599_APIMVC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807311959195_UpdatedStockModel.resx">
+      <DependentUpon>201807311959195_UpdatedStockModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

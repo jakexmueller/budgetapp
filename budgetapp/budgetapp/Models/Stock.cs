@@ -11,12 +11,12 @@ namespace budgetapp.Models
         [Key]
         public int Id { get; set; }
 
-        public int CurrentPrice { get; set; }
-        public int OneMonthAgoPrice { get; set; }
-        public int TwoMonthsAgoPrice { get; set; }
-        public int ThreeMonthsAgoPrice { get; set; }
-        public int FourMonthsAgoPrice { get; set; }
-        public int FiveMonthsAgoPrice { get; set; }
-        public int SixMonthsAgoPrice { get; set; }
+        public double CurrentPrice { get; set; }
+        public double OneMonthAgoPrice { get; set; }
+        public double TwoMonthsAgoPrice { get; set; }
+        public double ThreeMonthsAgoPrice { get; set; }
+        public double FourMonthsAgoPrice { get; set; }
+        public double FiveMonthsAgoPrice { get; set; }
+        public double SixMonthsAgoPrice { get; set; }
     }
 }
