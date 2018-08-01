@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using budgetapp.Models;
+using Newtonsoft.Json;
 
 namespace budgetapp.Controllers
 {
@@ -19,6 +20,18 @@ namespace budgetapp.Controllers
         {
             //var spendingHabits = db.SpendingHabits.Include(s => s.ApplicationUser);
             //return View(spendingHabits.ToList());
+
+            //List<SpendingHabits> dataPoints = new List<SpendingHabits>{
+            //    new DataPoint(10, 22),
+            //    new DataPoint(20, 36),
+            //    new DataPoint(30, 42),
+            //    new DataPoint(40, 51),
+            //    new DataPoint(50, 46),
+            //};
+
+            //ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
+
             return View(db.SpendingHabits.ToList());
         }
 
