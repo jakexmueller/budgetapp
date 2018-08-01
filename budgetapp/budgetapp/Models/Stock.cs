@@ -11,6 +11,7 @@ namespace budgetapp.Models
         [Key]
         public int Id { get; set; }
 
+        public string Symbol { get; set; }
         public double CurrentPrice { get; set; }
         public double OneMonthAgoPrice { get; set; }
         public double TwoMonthsAgoPrice { get; set; }

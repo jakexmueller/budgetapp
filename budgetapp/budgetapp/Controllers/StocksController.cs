@@ -22,9 +22,9 @@ namespace budgetapp.Controllers
         }
 
         //  GET: Stock Quote
-        public async Task<ActionResult> GetStockQuote(string symbol)
+        public async Task<Stock> GetStockQuote(string symbol)
         {
-            symbol = "XOM";
+            //symbol = "XOM";
             AlphaVantageAPI alphaVantageAPI = new AlphaVantageAPI(MyKeys.ALPHA_VANTAGE_API_KEY);
             var test = await alphaVantageAPI.GetStockDataAsync(symbol);
             var jo = JObject.Parse(test);
@@ -63,13 +63,24 @@ namespace budgetapp.Controllers
             stock.FiveMonthsAgoPrice = stockPriceTodayFiveMonthsAgo.ToObject<double>();
             stock.SixMonthsAgoPrice = stockPriceTodaySixMonthsAgo.ToObject<double>();
 
-            return RedirectToAction("Index", stock);
+            return stock;
         }
 
         //GET: ChooseStock
         public ActionResult ChooseStock()
         {
             return View();
+        }
+        //POST: ChooseStock
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ChooseStockAsync([Bind (Include = "Symbol")]Stock stock)
+        {
+            string stockSymbol = stock.Symbol;
+            var returnedStock = await GetStockQuote(stockSymbol);
+            //return RedirectToAction("GetStockQuote", stock);
+            //return View("Index");
+            return View("Index", returnedStock);
         }
 
         // Retrieves Last Business Day of previous month

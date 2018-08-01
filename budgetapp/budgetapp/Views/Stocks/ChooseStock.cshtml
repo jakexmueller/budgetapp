@@ -6,13 +6,51 @@
 
 
 
-<form method="post">
-    <fieldset>
-        <legend>Choose Stock Symbol</legend>
-        <div>
-            <label for="StockSymbol">Symbol:</label>
-            <input type="text" name="Symbol" value="" />
-            @Html.ValidationMessage("stocksymbol")
+
+@using (Html.BeginForm("ChooseStockAsync", "Stocks", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Budget</h4>
+        <hr />
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Symbol, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Symbol, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Symbol, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </fieldset>
-</form>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+    @*@using (Html.BeginForm("ChooseStockAsync", "Stocks", FormMethod.Post))
+        {
+
+            @Html.AntiForgeryToken()
+
+            <label for="stockSymbol">Stock Symbol</label>
+            <input type="text" id="stockSymbol" placeholder="XOM" />
+            <input type="submit" value="Submit" />
+        }*@
+
+
+
+
+
+
+    @*<form id="stockSymbolForm" method="post">
+
+            <label for="stockSymbol">Stock Symbol</label>
+            <input type="text" id="stockSymbol" placeholder="XOM" />
+            <input type="submit" />
+        </form>*@
+
