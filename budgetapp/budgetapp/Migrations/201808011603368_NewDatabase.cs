@@ -3,7 +3,7 @@ namespace budgetapp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddedDateTime : DbMigration
+    public partial class NewDatabase : DbMigration
     {
         public override void Up()
         {
@@ -97,6 +97,9 @@ namespace budgetapp.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         UserId = c.String(maxLength: 128),
+                        WeekOf = c.DateTime(nullable: false),
+                        WeekTotal = c.Int(nullable: false),
+                        BudgetBalance = c.Int(nullable: false),
                         CashTotal = c.Int(nullable: false),
                         AssetTotal = c.Double(nullable: false),
                         AccountTotal = c.Double(nullable: false),
@@ -104,6 +107,22 @@ namespace budgetapp.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
+            
+            CreateTable(
+                "dbo.Stocks",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Symbol = c.String(),
+                        CurrentPrice = c.Double(nullable: false),
+                        OneMonthAgoPrice = c.Double(nullable: false),
+                        TwoMonthsAgoPrice = c.Double(nullable: false),
+                        ThreeMonthsAgoPrice = c.Double(nullable: false),
+                        FourMonthsAgoPrice = c.Double(nullable: false),
+                        FiveMonthsAgoPrice = c.Double(nullable: false),
+                        SixMonthsAgoPrice = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.WeeklyReports",
@@ -161,6 +180,7 @@ namespace budgetapp.Migrations
             DropIndex("dbo.Budgets", new[] { "UserId" });
             DropTable("dbo.WishLists");
             DropTable("dbo.WeeklyReports");
+            DropTable("dbo.Stocks");
             DropTable("dbo.SpendingHabits");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");

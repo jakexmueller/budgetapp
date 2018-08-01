@@ -207,29 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807301527238_AddedDateTime.cs" />
-    <Compile Include="Migrations\201807301527238_AddedDateTime.Designer.cs">
-      <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807310041151_StockPriceModel.cs" />
-    <Compile Include="Migrations\201807310041151_StockPriceModel.Designer.cs">
-      <DependentUpon>201807310041151_StockPriceModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807310228567_StockModel.cs" />
-    <Compile Include="Migrations\201807310228567_StockModel.Designer.cs">
-      <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807311454599_APIMVC.cs" />
-    <Compile Include="Migrations\201807311454599_APIMVC.Designer.cs">
-      <DependentUpon>201807311454599_APIMVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807311959195_UpdatedStockModel.cs" />
-    <Compile Include="Migrations\201807311959195_UpdatedStockModel.Designer.cs">
-      <DependentUpon>201807311959195_UpdatedStockModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808011328390_UpdatedStockModel1.cs" />
-    <Compile Include="Migrations\201808011328390_UpdatedStockModel1.Designer.cs">
-      <DependentUpon>201808011328390_UpdatedStockModel1.cs</DependentUpon>
+    <Compile Include="Migrations\201808011603368_NewDatabase.cs" />
+    <Compile Include="Migrations\201808011603368_NewDatabase.Designer.cs">
+      <DependentUpon>201808011603368_NewDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -346,23 +326,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807301527238_AddedDateTime.resx">
-      <DependentUpon>201807301527238_AddedDateTime.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807310041151_StockPriceModel.resx">
-      <DependentUpon>201807310041151_StockPriceModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807310228567_StockModel.resx">
-      <DependentUpon>201807310228567_StockModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807311454599_APIMVC.resx">
-      <DependentUpon>201807311454599_APIMVC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807311959195_UpdatedStockModel.resx">
-      <DependentUpon>201807311959195_UpdatedStockModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011328390_UpdatedStockModel1.resx">
-      <DependentUpon>201808011328390_UpdatedStockModel1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808011603368_NewDatabase.resx">
+      <DependentUpon>201808011603368_NewDatabase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

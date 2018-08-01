@@ -16,6 +16,10 @@ namespace budgetapp.Models
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+
+        public DateTime WeekOf { get; set; }
+        public int WeekTotal { get; set; }
+        public int BudgetBalance { get; set; }
         public int CashTotal { get; set; }
         public double AssetTotal { get; set; }
         public double AccountTotal { get; set; }

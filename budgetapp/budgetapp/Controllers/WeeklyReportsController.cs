@@ -201,6 +201,55 @@ namespace budgetapp.Controllers
             return View(weeklyReport);
         }
 
+        //GET: WeeklyReports/StartNewWeek
+        //public ActionResult StartNewWeek()
+        //{
+        //    var currentUserId = User.Identity.GetUserId();
+        //    if (currentUserId == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    WeeklyReport weeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+        //    if (weeklyReport == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View();
+        //}
+        ////POST: WeeklyReports/StartNewWeek
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult StartNewWeek(/*[Bind(Include = "WeekOf,WeeklyIncome,WeeklyBudget,Spending,Balance")] WeeklyReport weeklyReport*/)
+        {
+            var currentUserId = User.Identity.GetUserId();
+            Budget budget = db.Budgets.Where(x => x.UserId == currentUserId).FirstOrDefault();
+            WeeklyReport myWeeklyReport = db.WeeklyReports.Where(x => x.UserId == currentUserId).FirstOrDefault();
+            WeeklyReport newWeeklyReport = new WeeklyReport();
+            SpendingHabits spendingHabits = new SpendingHabits();
+
+            db.SpendingHabits.Add(spendingHabits);
+
+            spendingHabits.WeekOf = myWeeklyReport.WeekOf;
+            spendingHabits.WeekTotal = (myWeeklyReport.WeeklyIncome - myWeeklyReport.Spending);
+            spendingHabits.BudgetBalance = myWeeklyReport.Balance;
+            spendingHabits.CashTotal += (myWeeklyReport.WeeklyIncome - myWeeklyReport.Spending);
+            //spendingHabits.AssetTotal += 
+            spendingHabits.AccountTotal += spendingHabits.CashTotal + spendingHabits.AssetTotal;
+
+            db.WeeklyReports.Remove(myWeeklyReport);
+            db.WeeklyReports.Add(newWeeklyReport);
+
+            newWeeklyReport.UserId = currentUserId;
+            newWeeklyReport.WeekOf = DateTime.Now.AddDays(-Convert.ToInt32(DateTime.Now.DayOfWeek));
+            newWeeklyReport.WeeklyIncome = budget.WeeklyWage;
+            newWeeklyReport.WeeklyBudget = budget.Bills + budget.Groceries + budget.Transportation + budget.GoingOutFund;
+            newWeeklyReport.Balance = newWeeklyReport.WeeklyBudget - newWeeklyReport.Spending;
+
+            db.SaveChanges();
+
+            return RedirectToAction("Details", new { id = myWeeklyReport.Id });
+        }
+
 
         protected override void Dispose(bool disposing)
         {
