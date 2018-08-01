@@ -1,0 +1,18 @@
+﻿@model budgetapp.Models.Stock
+
+
+
+<h2>Choose a Stock!</h2>
+
+
+
+<form method="post">
+    <fieldset>
+        <legend>Choose Stock Symbol</legend>
+        <div>
+            <label for="StockSymbol">Symbol:</label>
+            <input type="text" name="Symbol" value="" />
+            @Html.ValidationMessage("stocksymbol")
+        </div>
+    </fieldset>
+</form>

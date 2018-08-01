@@ -28,9 +28,6 @@ namespace budgetapp.Controllers
             AlphaVantageAPI alphaVantageAPI = new AlphaVantageAPI(MyKeys.ALPHA_VANTAGE_API_KEY);
             var test = await alphaVantageAPI.GetStockDataAsync(symbol);
             var jo = JObject.Parse(test);
-            //string today = DateTime.Today.ToString("yyyy-MM-dd");
-            //var stockPriceToday = jo["Monthly Time Series"][today]["4. close"];
-            //string oneMonthAgo = GetLastBusinessDayPreviousMonth(today);
 
             DateTime today = DateTime.Today;
             DateTime oneMonthAgo = GetLastBusinessDayPreviousMonth(today);
@@ -69,6 +66,13 @@ namespace budgetapp.Controllers
             return RedirectToAction("Index", stock);
         }
 
+        //GET: ChooseStock
+        public ActionResult ChooseStock()
+        {
+            return View();
+        }
+
+        // Retrieves Last Business Day of previous month
         public DateTime GetLastBusinessDayPreviousMonth (DateTime date)
         {
             var holidays = new List<DateTime>
@@ -99,9 +103,9 @@ namespace budgetapp.Controllers
                 lastDayPreviousMonth = lastDayPreviousMonth.AddDays(-1);
             }
 
-
             return lastDayPreviousMonth;
         }
+
 
     }
 }

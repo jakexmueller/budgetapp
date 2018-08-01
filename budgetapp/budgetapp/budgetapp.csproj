@@ -323,6 +323,7 @@
     <Content Include="Views\SpendingHabits\Edit.cshtml" />
     <Content Include="Views\SpendingHabits\Index.cshtml" />
     <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\Stocks\ChooseStock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
