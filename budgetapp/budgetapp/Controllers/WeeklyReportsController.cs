@@ -229,6 +229,7 @@ namespace budgetapp.Controllers
 
             db.SpendingHabits.Add(spendingHabits);
 
+            spendingHabits.UserId = currentUserId;
             spendingHabits.WeekOf = myWeeklyReport.WeekOf;
             spendingHabits.WeekTotal = (myWeeklyReport.WeeklyIncome - myWeeklyReport.Spending);
             spendingHabits.BudgetBalance = myWeeklyReport.Balance;

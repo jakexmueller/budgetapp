@@ -20,7 +20,7 @@ namespace budgetapp.Models
         public string ItemType { get; set; }
         public int ItemPrice { get; set; }
         public int DisplayNumber { get; set; }
-        public bool DisplayFirst { get; set; }
+        public string Progress { get; set; }
 
     }
 }

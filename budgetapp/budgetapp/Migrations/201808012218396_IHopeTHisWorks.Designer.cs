@@ -7,13 +7,13 @@ namespace budgetapp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class NewDatabase : IMigrationMetadata
+    public sealed partial class IHopeTHisWorks : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(NewDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(IHopeTHisWorks));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808011603368_NewDatabase"; }
+            get { return "201808012218396_IHopeTHisWorks"; }
         }
         
         string IMigrationMetadata.Source

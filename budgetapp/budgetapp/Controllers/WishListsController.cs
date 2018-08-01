@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using budgetapp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace budgetapp.Controllers
 {
@@ -17,9 +18,36 @@ namespace budgetapp.Controllers
         // GET: WishLists
         public ActionResult Index()
         {
-            var wishLists = db.WishLists.Include(w => w.ApplicationUser).OrderBy(x => x.DisplayNumber).ToList(); 
-            
-            return View(wishLists);
+
+            string currentUserId = User.Identity.GetUserId();
+            var weeklyReport = db.WeeklyReports.Where(w => w.UserId == currentUserId).FirstOrDefault();
+            Console.WriteLine(db.WishLists);
+            //var currentItem = db.WishLists.Where(w=>w.UserId == currentUserId).Where(w => w.DisplayNumber == 1).FirstOrDefault();
+            var wishListItems = db.WishLists.Where(w => w.UserId == currentUserId).ToList();
+
+
+            if (wishListItems.Count > 0)
+            {
+                var currentItem = wishListItems.Where(w => w.DisplayNumber == 1).FirstOrDefault();
+                var savingsAccount = db.SpendingHabits.Where(w => w.UserId == currentUserId).FirstOrDefault();
+                if (currentItem.ItemPrice > .05 * savingsAccount.CashTotal)
+                {
+                    currentItem.Progress = ((Math.Round((currentItem.ItemPrice / ((weeklyReport.WeeklyIncome - weeklyReport.WeeklyBudget) * .05)))).ToString()) + " weeks";
+                }
+                else
+                {
+                    currentItem.Progress = "Purchasable";
+                }
+
+                
+                //db.SaveChanges();
+
+            }
+            wishListItems.OrderBy(x => x.DisplayNumber).ToList();
+            return View(wishListItems);
+
+            //var wishLists = db.WishLists.Include(w => w.ApplicationUser).OrderBy(x => x.DisplayNumber).ToList();
+            //return View(wishLists);
         }
 
         // GET: WishLists/Details/5
@@ -40,7 +68,7 @@ namespace budgetapp.Controllers
         // GET: WishLists/Create
         public ActionResult Create()
         {
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
+            //ViewBag.UserId = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -49,7 +77,7 @@ namespace budgetapp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemId,UserId,ItemName,ItemPrice")] WishList wishList)
+        public ActionResult Create([Bind(Include = "ItemId,UserId,ItemName,ItemPrice,Progress")] WishList wishList)
         {
             if (ModelState.IsValid)
             {
@@ -67,13 +95,14 @@ namespace budgetapp.Controllers
 
                     wishList.DisplayNumber = maxDisplayNumber + 1;
                 }
-                
+                var currentUserId = User.Identity.GetUserId();
+                wishList.UserId = currentUserId;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             
-            ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
+            //ViewBag.UserId = new SelectList(db.Users, "Id", "Email", wishList.UserId);
             return View(wishList);
         }
 

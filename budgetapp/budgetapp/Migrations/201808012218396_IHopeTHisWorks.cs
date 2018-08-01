@@ -3,7 +3,7 @@ namespace budgetapp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class NewDatabase : DbMigration
+    public partial class IHopeTHisWorks : DbMigration
     {
         public override void Up()
         {
@@ -150,7 +150,7 @@ namespace budgetapp.Migrations
                         ItemType = c.String(),
                         ItemPrice = c.Int(nullable: false),
                         DisplayNumber = c.Int(nullable: false),
-                        DisplayFirst = c.Boolean(nullable: false),
+                        Progress = c.String(),
                     })
                 .PrimaryKey(t => t.ItemId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
