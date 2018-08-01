@@ -43,11 +43,11 @@ namespace budgetapp.Controllers
                 //db.SaveChanges();
 
             }
-            wishListItems.OrderBy(x => x.DisplayNumber).ToList();
-            return View(wishListItems);
+            //wishListItems .OrderBy(x => x.DisplayNumber).ToList();
+            //return View(wishListItems);
 
-            //var wishLists = db.WishLists.Include(w => w.ApplicationUser).OrderBy(x => x.DisplayNumber).ToList();
-            //return View(wishLists);
+            var wishLists = db.WishLists.Include(w => w.ApplicationUser).OrderBy(x => x.DisplayNumber).ToList();
+            return View(wishLists);
         }
 
         // GET: WishLists/Details/5
