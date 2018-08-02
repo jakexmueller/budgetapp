@@ -16,10 +16,14 @@ namespace budgetapp.Models
         public string UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
+        [Display(Name = "Weekly Wage")]
         public int WeeklyWage { get; set; }
+
         public int Bills { get; set; }
         public int Groceries { get; set; }
         public int Transportation { get; set; }
+
+        [Display(Name = "Social Fund")]
         public int GoingOutFund { get; set; }
 
         

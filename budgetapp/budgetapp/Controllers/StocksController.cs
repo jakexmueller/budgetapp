@@ -55,6 +55,7 @@ namespace budgetapp.Controllers
 
             Stock stock = new System.Web.Script.Serialization.JavaScriptSerializer().Deserialize<Stock>(test);
 
+            stock.Symbol = symbol;
             stock.CurrentPrice = stockPriceToday.ToObject<double>();
             stock.OneMonthAgoPrice = stockPriceOneMonthAgo.ToObject<double>();
             stock.TwoMonthsAgoPrice = stockPriceTodayTwoMonthsAgo.ToObject<double>();

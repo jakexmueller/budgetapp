@@ -1,12 +1,16 @@
 ﻿@model budgetapp.Models.Stock
 
-
+<br/>
 
 <p>
     @Html.ActionLink("Choose a Stock to View", "ChooseStock")
 </p>
+<br />
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Symbol)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.CurrentPrice)
         </th>
@@ -63,6 +67,9 @@
         }*@
 
     <tr>
+        <td>
+            @Html.DisplayFor(model => model.Symbol)
+        </td>
         <td>
             @Html.DisplayFor(model => model.CurrentPrice)
         </td>
