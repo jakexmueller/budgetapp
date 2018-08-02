@@ -207,9 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808012218396_IHopeTHisWorks.cs" />
-    <Compile Include="Migrations\201808012218396_IHopeTHisWorks.Designer.cs">
-      <DependentUpon>201808012218396_IHopeTHisWorks.cs</DependentUpon>
+    <Compile Include="Migrations\201808012338462_FinalUpdates.cs" />
+    <Compile Include="Migrations\201808012338462_FinalUpdates.Designer.cs">
+      <DependentUpon>201808012338462_FinalUpdates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -234,6 +234,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\homepage_money.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -327,8 +328,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808012218396_IHopeTHisWorks.resx">
-      <DependentUpon>201808012218396_IHopeTHisWorks.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808012338462_FinalUpdates.resx">
+      <DependentUpon>201808012338462_FinalUpdates.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
